@@ -1,0 +1,18 @@
+Description: Enable right/middle clicks by tapping in the bottom- and top-right corners.
+Bug-Ubuntu: https://launchpad.net/bugs/320632
+
+Index: xserver-xorg-input-synaptics-1.8.2/src/synaptics.c
+===================================================================
+--- xserver-xorg-input-synaptics-1.8.2.orig/src/synaptics.c
++++ xserver-xorg-input-synaptics-1.8.2/src/synaptics.c
+@@ -717,8 +717,8 @@ set_default_parameters(InputInfoPtr pInf
+ 
+     pars->locked_drags = xf86SetBoolOption(opts, "LockedDrags", FALSE);
+     pars->locked_drag_time = xf86SetIntOption(opts, "LockedDragTimeout", 5000);
+-    pars->tap_action[RT_TAP] = xf86SetIntOption(opts, "RTCornerButton", 0);
+-    pars->tap_action[RB_TAP] = xf86SetIntOption(opts, "RBCornerButton", 0);
++    pars->tap_action[RT_TAP] = xf86SetIntOption(opts, "RTCornerButton", 2);
++    pars->tap_action[RB_TAP] = xf86SetIntOption(opts, "RBCornerButton", 3);
+     pars->tap_action[LT_TAP] = xf86SetIntOption(opts, "LTCornerButton", 0);
+     pars->tap_action[LB_TAP] = xf86SetIntOption(opts, "LBCornerButton", 0);
+     pars->tap_action[F1_TAP] = xf86SetIntOption(opts, "TapButton1", tapButton1);

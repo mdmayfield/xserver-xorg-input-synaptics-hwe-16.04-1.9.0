@@ -1,0 +1,16 @@
+Description: Disable three touch click in favor of uTouch gestures.
+Bug-Ubuntu: https://launchpad.net/bugs/961725
+
+Index: xserver-xorg-input-synaptics-1.8.2/src/synaptics.c
+===================================================================
+--- xserver-xorg-input-synaptics-1.8.2.orig/src/synaptics.c
++++ xserver-xorg-input-synaptics-1.8.2/src/synaptics.c
+@@ -631,7 +631,7 @@ set_default_parameters(InputInfoPtr pInf
+        otherwise clickFinger is always button 1. */
+     clickFinger1 = 1;
+     clickFinger2 = (priv->has_right || priv->has_middle) ? 1 : 3;
+-    clickFinger3 = (priv->has_right || priv->has_middle) ? 1 : 2;
++    clickFinger3 = 0; /* Disabled by default so three-touch gestures work */
+ 
+     /* Enable vert edge scroll */
+     vertEdgeScroll = TRUE;
