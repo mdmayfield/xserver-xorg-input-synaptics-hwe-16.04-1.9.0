@@ -7,3 +7,12 @@ libtool
 */.deps/*
 stamp-h1
 *.pc
+src/.libs/
+*.la
+*.lo
+*.o
+*.4
+*.1
+tools/synclient
+tools/syndaemon
+
